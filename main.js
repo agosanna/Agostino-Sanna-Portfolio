@@ -71,9 +71,9 @@ document.addEventListener("mousemove", (event) => {
   const mouseX = event.clientX;
 
   if (mouseX < windowWidth / 2) {
-    document.body.style.cursor = "url(arrow--left.svg),auto";
+    document.body.style.cursor = "url(./public/arrow--left.svg),auto";
   } else {
-    document.body.style.cursor = "url(arrow--right.svg),auto";
+    document.body.style.cursor = "url(./public/arrow--right.svg),auto";
   }
 });
 
