@@ -71,9 +71,9 @@ document.addEventListener("mousemove", (event) => {
   const mouseX = event.clientX;
 
   if (mouseX < windowWidth / 2) {
-    document.body.style.cursor = "url(/arrow--left.svg),auto";
+    document.body.style.cursor = "url(arrow--left.svg),auto";
   } else {
-    document.body.style.cursor = "url(/arrow--right.svg),auto";
+    document.body.style.cursor = "url(arrow--right.svg),auto";
   }
 });
 
@@ -118,7 +118,7 @@ function showSlide() {
 
 function nextSlide() {
   imgCounter = 1;
-  slides[currentIndex].src = `/secondaryImg/${Object.values(projects)[currentIndex].img + imgCounter}.png`;
+  slides[currentIndex].src = `./public/secondaryImg/${Object.values(projects)[currentIndex].img + imgCounter}.png`;
   killInfo(currentIndex);
   currentIndex = (currentIndex + 1) % slides.length;
   showSlide(currentIndex);
@@ -126,7 +126,7 @@ function nextSlide() {
 
 function prevSlide() {
   imgCounter = 1;
-  slides[currentIndex].src = `/secondaryImg/${Object.values(projects)[currentIndex].img + imgCounter}.png`;
+  slides[currentIndex].src = `./public/secondaryImg/${Object.values(projects)[currentIndex].img + imgCounter}.png`;
   killInfo(currentIndex);
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   showSlide(currentIndex);
@@ -248,7 +248,7 @@ function changeslide(){
     imgCounter = imgCounter >= projects[Object.keys(projects)[currentIndex]].imgs ? 1 : imgCounter + 1;
 
     // Set low-resolution image and apply blur
-    slides[currentIndex].src = `/secondaryImg/low_res/${Object.values(projects)[currentIndex].img+imgCounter}.png`; // Replace with path to your low-resolution image
+    slides[currentIndex].src = `./public/secondaryImg/low_res/${Object.values(projects)[currentIndex].img+imgCounter}.png`; // Replace with path to your low-resolution image
     slides[currentIndex].classList.add('img-blur'); // Add class to apply blur effect
      // Add a load event listener to the image
      slides[currentIndex].addEventListener('load', () => {
@@ -265,7 +265,7 @@ function changeslide(){
 
      // Prepare high-resolution image
     let highResImage = new Image();
-    highResImage.src = `/secondaryImg/${Object.values(projects)[currentIndex].img+imgCounter}.png`; // Replace with path to your high-resolution image
+    highResImage.src = `./public/secondaryImg/${Object.values(projects)[currentIndex].img+imgCounter}.png`; // Replace with path to your high-resolution image
 
     highResImage.onload = () => {
         // Once high-resolution image is loaded, replace and remove blur
