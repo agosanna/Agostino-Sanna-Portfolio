@@ -1,0 +1,216 @@
+:root{
+  background-color: #080808;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.img-blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.img-sharp {
+  filter: blur(0);
+}
+
+
+a, p, h1, h2, h3{
+  font-family: 'Helvetica';
+  text-decoration: none;
+  font-size: 0.8em;
+  color: rgb(202, 202, 202);
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a {
+  padding: 7px;
+}
+
+p {
+  hyphens: auto;
+}
+
+
+header, footer {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  margin: 2.7vh 2.7vw;
+}
+
+.container {
+  position: absolute;
+  top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info{
+  margin: 0 3vw;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.6s ease;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+#top {
+  padding-bottom: 33vh;
+}
+
+#bottom {
+  padding-top: 33vh;
+  align-items: end;
+}
+
+.side-info {
+  display: flex;
+}
+
+.side-info :nth-child(odd){
+  padding-right: 1vw;
+}
+.side-info :nth-child(even){
+  padding-left: 1vw;
+}
+
+.side-info img {
+  height: 5vh;
+}
+
+#slideshow{
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  top: 3vh;
+  display: flex;
+  justify-content: center;
+  cursor: crosshair;
+  
+}
+
+.slide {
+  position: absolute;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+#customCursor {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  mix-blend-mode: difference;
+  display: none;
+  color: white;
+  font-size: 1.2em;
+  font-family: 'Helvetica';
+}
+
+@media screen and (min-width: 1600px){
+  a, p, h1, h2, h3 {
+    font-size:0.95em;
+  }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1250px) {
+  .container {
+    top: 19.5vh;
+  }
+  .slide {
+    max-height: 55vh;
+  }
+  #top {
+    padding-bottom: 25.5vh;
+  }
+  #bottom {
+    padding-top: 25.5vh;
+  }
+
+  
+}
+
+@media screen and (min-width: 650px) and (max-width: 850px) {
+  .container {
+    top: 27vh;
+  }
+  .slide {
+    max-height: 40vh;
+  }
+  #top {
+    padding-bottom: 18vh;
+  }
+  #bottom {
+    padding-top: 18vh;
+  }
+}
+
+@media (max-width: 650px) {
+  body {
+    height: 100dvh;
+  }
+  a, p, h1, h2, h3 {
+    font-size:0.96em;
+  }
+  .info p {
+    font-size: 0.8em;
+  }
+
+  .slide {
+    width: 90vw;
+  }
+  .container {
+    top: 10vh;
+  }
+  #top {
+    padding-bottom: 0;
+  }
+  #bottom {
+    padding-top: 0;
+  }
+
+  .side-info img {
+    height: 3vh;
+    margin: 1.4vh 0;
+  }
+}
+
+
+
+
+
+
+
