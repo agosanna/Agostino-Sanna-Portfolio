@@ -5,7 +5,7 @@ const projects = {
       lat: 48.79347,
       type: "CODING, UI",
       lon: 9.793699,
-      text: `Ricettebrutte (Ugly recipes) was born out of necessity and evolved into a concept celebrating the beauty of ugliness. The initial aim was to create a conventional recipe app using React Native, but free API images were awful and the recipes looked terrible. I decided to embrace the poor quality of the pictures and create an app for 'good recipes with ugly pictures'. If you have android you can download it <a href="./public/RICETTEBRUTTE.apk" download="RICETTEBRUTTE.apk"  style="text-decoration: underline; cursor: pointer; font-size: 1em;">here</a>`,
+      text: `Ricettebrutte (ugly recipes) was born out of necessity and evolved into a concept celebrating the beauty of ugliness. The initial aim was to create a conventional recipe app using React Native, but free API images were awful and the recipes looked terrible. I decided to embrace the poor quality of the pictures and create an app for 'good recipes with ugly pictures'. If you have android you can download it <a href="./public/RICETTEBRUTTE.apk" download="RICETTEBRUTTE.apk"  style="text-decoration: underline; cursor: pointer; font-size: 1em;">here</a>`,
       where: "ERASMUS PR.",
       how: "INDIVIDUAL",
       img: "RR_",
@@ -23,7 +23,7 @@ const projects = {
       how: "GROUP OF 6",
       img: "ANTH_",
       imgs: 4,
-      link: "https://anthropogenicnarratives.it",
+      link: "http://anthropogenicnarratives.labsintesi-c1.info/index.html",
     },
     gg: {
       name: "GIOVEDÌ GIOVANNI",
@@ -76,7 +76,7 @@ const projects = {
       how: "GROUP OF 2",
       img: "AER_",
       imgs: 5,
-      link: "https://vimeo.com/jacopodomenichini",
+      link: "https://vimeo.com/822959364",
     },
   };
 

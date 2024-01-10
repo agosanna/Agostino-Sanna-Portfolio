@@ -215,7 +215,7 @@ function showInfo() {
       type.innerHTML = "";
     }
 
-    projInfo.innerHTML = `<p>${currentProject.text} <a href="${currentProject.link}" id="link" style="text-decoration: underline; cursor: pointer; font-size: 1em">LINK</a><a id="escLink" style="text-decoration: underline; cursor: pointer; font-size: 1em">ESC</a></p>`;
+    projInfo.innerHTML = `<p>${currentProject.text} <a href="${currentProject.link}" id="link" style="text-decoration: underline; cursor: pointer; font-size: 1em" target="blank">LINK</a><a id="escLink" style="text-decoration: underline; cursor: pointer; font-size: 1em">ESC</a></p>`;
     setTimeout(() => {
       const link = document.getElementById("link");
       if (link && currentProject.link === "") {
@@ -260,9 +260,10 @@ function changeslide(){
     // Set low-resolution image and apply blur
     if (window.innerWidth < 650){
       slides[currentIndex].src = `./public/secondaryImg/low_res/${Object.values(projects)[currentIndex].img+imgCounter}.png`;
+      slides[currentIndex].classList.add('img-blur');
     }
 
-    slides[currentIndex].classList.add('img-blur'); // Add class to apply blur effect
+     // Add class to apply blur effect
      // Add a load event listener to the image
      slides[currentIndex].addEventListener('load', () => {
        // Update the frame width based on the new image dimensions
