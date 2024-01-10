@@ -9,7 +9,7 @@ const projects = {
       where: "ERASMUS PR.",
       how: "INDIVIDUAL",
       img: "RR_",
-      imgs: 6,
+      imgs: 5,
       link: "",
     },
     anth: {
