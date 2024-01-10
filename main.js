@@ -248,7 +248,10 @@ function changeslide(){
     imgCounter = imgCounter >= projects[Object.keys(projects)[currentIndex]].imgs ? 1 : imgCounter + 1;
 
     // Set low-resolution image and apply blur
-    slides[currentIndex].src = `./public/secondaryImg/low_res/${Object.values(projects)[currentIndex].img+imgCounter}.png`; // Replace with path to your low-resolution image
+    if (window.innerWidth < 650){
+      slides[currentIndex].src = `./public/secondaryImg/low_res/${Object.values(projects)[currentIndex].img+imgCounter}.png`;
+    }
+    
     slides[currentIndex].classList.add('img-blur'); // Add class to apply blur effect
      // Add a load event listener to the image
      slides[currentIndex].addEventListener('load', () => {
