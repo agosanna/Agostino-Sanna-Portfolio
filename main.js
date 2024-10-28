@@ -85,7 +85,11 @@ window.addEventListener("resize", () => {frames.forEach((frame) => {
     if (projInfo){
       projInfo.style.width = slides[currentIndex].offsetWidth + 25 + "px";
     }
-}, 500)
+    if (window.innerWidth < 650){
+      frame.style.height = slides[currentIndex].offsetHeight/2 +  + "px";
+    }
+  }
+, 500)
 });});
 
 

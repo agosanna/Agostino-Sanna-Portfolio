@@ -142,7 +142,7 @@ header, footer {
 
 @media screen and (min-width: 1600px){
   a, p, h1, h2, h3 {
-    font-size:0.95em;
+    font-size:0.85em;
   }
 }
 
@@ -152,6 +152,7 @@ header, footer {
   }
   .slide {
     max-height: 55vh;
+    max-width: 80vw;
   }
   #top {
     padding-bottom: 25.5vh;
