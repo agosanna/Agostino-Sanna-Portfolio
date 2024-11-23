@@ -1,5 +1,7 @@
 const scrollCta = document.querySelector("#scroll-cta");
 const worksContainer = document.querySelector("#works-container");
+const menuItems = document.querySelectorAll(".menu-item");
+const preview = document.querySelector("#preview");
 let works = false;
 
 
@@ -36,3 +38,22 @@ scrollCta.addEventListener("click", function() {
     block: works ? 'end' : 'start'
   });
 });
+
+menuItems.forEach((item, index) => {
+  item.addEventListener("mouseover", () => {
+    preview.style.backgroundImage = `url('/public/Mockup_${index + 1}.png')`;
+
+    const rect = item.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2 + window.scrollY;
+
+    preview.style.transform = `translateY(${centerY - preview.offsetHeight / 2}px)`;
+    preview.style.opacity = "1";
+  });
+
+  item.addEventListener("mouseout", () => {
+    preview.style.opacity = "0";
+  });
+});
+
+
