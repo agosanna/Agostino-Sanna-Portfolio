@@ -34,8 +34,6 @@ a, p {
 h2 {
   font-size: 1.4em;
   font-weight: 200;
-  border-bottom: solid;
-  border-color: #080808;
 }
 
 a:hover {
@@ -44,7 +42,7 @@ a:hover {
 
     & h2 {
       transition: 0.3s;
-      border-color: rgb(202, 202, 202);
+      opacity: 0.4;
     }
 }
 
