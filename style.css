@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&display=swap');
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes appear-cover {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 :root{
   background-color: #080808;
 }
@@ -21,38 +41,28 @@ body {
   width: 100vw;
 }
 
-a, p, h1, h2, h3{
+a, p, h1, h2, h3, h4, span{
   font-family: 'Libre Franklin', sans-serif;
   text-decoration: none;
-  color: rgb(202, 202, 202);
+  color: rgb(255, 255, 255);
 }
 
 a, p {
-  font-size: 1em;
-}
-
-h2 {
-  font-size: 1.4em;
-  font-weight: 200;
-}
-
-a:hover {
-  transition: 0.3s;
-  cursor: pointer;
-
-    & h2 {
-      transition: 0.3s;
-      opacity: 0.4;
-    }
+  font-size: 0.9em;
 }
 
 p {
-  hyphens: auto;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 200;
+  line-height: 1.4em;
 }
 
+p span {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+}
 
 header, footer {
-  position: fixed;
   display: flex;
   width: 95%;
   justify-content: space-between;
@@ -60,66 +70,22 @@ header, footer {
   z-index: 1;
 }
 
-#splash-page{
-  scroll-snap-align: start;
-  width: 100vw;
-  height: calc(100vh - (53.2px + 5.4vh));
+header {
+  position: fixed;
+  top: 0;
 }
 
-#scroll-cta{
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: sticky;
-  top: 2.7vh;
-  width: 20%;
-  gap: 10px;
-  margin: 2.7vh 40%;
-}
-
-#works-container{
-  scroll-snap-align: start;
-  margin: 0 15vw;
-  height: calc(100vh - (53.2px + 5.4vh));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-    & a.menu-item {
-      width: 100%;
-      padding: 0.5vh 0;
-    }  
-
-}
-
-#preview{
-  opacity: 0;
+footer {
   position: absolute;
-  right: 5vw;
-  width: 45vw;
-  aspect-ratio: 3 / 2;
-  background-size: cover;
-  background-position: center;
-  pointer-events: none;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-image 0.3s ease-in-out;
-  z-index: 1000;
+  bottom: 0;
 }
 
+img {
+  border-radius: 16px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 1400px) {
+  p, a {
+    font-size: 1em;
+  }
+}
