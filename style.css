@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&display=swap');
-
 @keyframes appear {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
+    transform: scale(1)
   }
 }
 
@@ -29,6 +27,7 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 }
 body {
   position: relative;
@@ -38,29 +37,33 @@ body {
 }
 
 a, p, h1, h2, h3, h4, span{
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'aktiv-grotesk', sans-serif;
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
 
 a, p {
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 p {
   color: rgba(255, 255, 255, 0.6);
-  font-weight: 200;
+  font-weight: 300;
+  font-style: normal;
   line-height: 1.4em;
 }
 
 p span {
   color: rgba(255, 255, 255, 1);
-  font-weight: 400;
+  font-weight: 300;
+  font-style: normal;
 }
 
 h4 {
-  font-size: 1em;
+  font-size: 1.2em;
   margin-bottom: 0.5em;
+  font-weight: 500;
+  font-style: normal;
 }
 
 
@@ -108,16 +111,16 @@ img {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Libre Franklin', sans-serif;
+      font-family: 'aktiv-grotesk', sans-serif;
       font-size: 1.2em;
-      font-weight: bold;
+      font-weight: 800;
       margin-bottom: 0.6em;
     }
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   p, a {
-    font-size: 1em;
+    font-size: 1.3em;
   }
 }
