@@ -1,0 +1,159 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    gap: 5vh;
+    margin: 15vh auto;
+    
+}
+
+h4 {
+    color: white;
+    padding-bottom: 3vh;
+}
+
+#songs-container {
+    display: flex;
+    height: 152px;
+    gap: 2vw;
+}
+
+.song {
+    max-width: 6.5vw;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: max-width 0.5s ease-in-out;
+}
+
+.song:hover .description {
+    display: flex;
+}
+
+.description {
+    display: none;
+    flex-direction: column;
+}
+
+.description p {
+    color: var(--text-accent);
+}
+
+h6 {
+    color: var(--text);
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.vynil {
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    animation: spin 30s linear infinite;
+    animation-play-state: paused;
+    flex-shrink: 0;
+}
+
+.song:hover .vynil {
+    animation-play-state: running; /* Resume spinning on hover */
+}
+#song-1 {
+    background-image: url(/public/mediaprojects/about/walkin.jpg);
+}
+
+#song-2 {
+    background-image: url(/public/mediaprojects/about/pipi.jpg);
+}
+
+#song-3 {
+    background-image: url(/public/mediaprojects/about/forse-domani.jpg);
+}
+
+#song-4 {
+    background-image: url(/public/mediaprojects/about/panorama-olivia.jpg);
+}
+
+#song-5 {
+    background-image: url(/public/mediaprojects/about/tessellate.jpg);
+}
+
+iframe {
+    z-index: 5;
+    padding: 0 2vw;
+}
+
+.hole {
+    width: 0.8vw;
+    height: 0.8vw;
+    border-radius: 50%;
+    background-color: var(--background);
+}
+
+#about a{
+    color: var(--text-accent);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#image-container {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    pointer-events: none;
+    display: flex;
+    gap: 10vw;
+    justify-content: center;
+}
+
+#image-container img {
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 3;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 80vw;
+    }
+
+    #songs-container {
+        height: fit-content;
+    }
+
+    .vynil {
+        width: 13vw;
+        height: 13vw;
+    }
+
+    .hole {
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .song {
+        max-width: 8vw;
+    }
+
+    .song:hover .description {
+        display: none;
+    }
+}
