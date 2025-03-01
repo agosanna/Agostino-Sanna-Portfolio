@@ -72,15 +72,15 @@ h6 {
     animation-play-state: running; /* Resume spinning on hover */
 }
 #song-1 {
-    background-image: url(/public/mediaprojects/about/walkin.jpg);
+    background-image: url(./public/mediaprojects/about/walkin.jpg);
 }
 
 #song-2 {
-    background-image: url(Agostino-Sanna-Portfolio.io/public/mediaprojects/about/pipi.jpg);
+    background-image: url(./public/mediaprojects/about/pipi.jpg);
 }
 
 #song-3 {
-    background-image: url(/public/mediaprojects/about/forse-domani.jpg);
+    background-image: url(./public/mediaprojects/about/forse-domani.jpg);
 }
 
 #song-4 {
@@ -88,7 +88,7 @@ h6 {
 }
 
 #song-5 {
-    background-image: url(../public/mediaprojects/about/tessellate.jpg);
+    background-image: url(./public/mediaprojects/about/tessellate.jpg);
 }
 
 iframe {
