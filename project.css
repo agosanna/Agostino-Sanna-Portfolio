@@ -1,6 +1,6 @@
 .jo {
     --accent: #A3E946;
-    --cover: url(/public/Mockup_1.jpg);
+    --cover: url(./public/Mockup_1.jpg);
 }
 
 .threadsofsilk {
@@ -10,21 +10,21 @@
     --accent: #F67D51;
     --box: #1B1B1B;
     --box-shadow: inset 0px 0px 3px 1px rgba(88, 88, 88, 0.3);
-    --cover: url(/public/mediaprojects/threadsofsilk/Cover.webp);
+    --cover: url(./public/mediaprojects/threadsofsilk/Cover.webp);
 }
 
 .lumos {
     --text: #31244b97;
     --text-accent: #31244B;
     --accent: #5512BA;
-    --cover: url(/public/Mockup_4.jpg);
+    --cover: url(./public/Mockup_4.jpg);
 }
 
 .solanum {
     --text: #45060696;
     --text-accent: #710707;
     --accent: #eb0000;
-    --cover: url(/public/Mockup_5.jpg);
+    --cover: url(./public/Mockup_5.jpg);
 }
 
 .dark {
