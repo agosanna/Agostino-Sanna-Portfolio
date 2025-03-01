@@ -54,7 +54,7 @@ const timeline = ["09/24 - 01/25", "02/24 - 06/24", "02/24 - 07/24", "03/23 - 06
 
 menuItems.forEach((item, index) => {
   item.addEventListener("mouseover", () => {
-    preview.style.backgroundImage = `url('/public/Mockup_${index + 1}.jpg')`;
+    preview.style.backgroundImage = `url('./public/Mockup_${index + 1}.jpg')`;
 
     const rect = item.getBoundingClientRect();
     const centerY = rect.top + rect.height / 2 + window.scrollY;
