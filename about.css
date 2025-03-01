@@ -76,7 +76,7 @@ h6 {
 }
 
 #song-2 {
-    background-image: url(/public/mediaprojects/about/pipi.jpg);
+    background-image: url(Agostino-Sanna-Portfolio.io/public/mediaprojects/about/pipi.jpg);
 }
 
 #song-3 {
@@ -84,11 +84,11 @@ h6 {
 }
 
 #song-4 {
-    background-image: url(/public/mediaprojects/about/panorama-olivia.jpg);
+    background-image: url(./public/mediaprojects/about/panorama-olivia.jpg);
 }
 
 #song-5 {
-    background-image: url(/public/mediaprojects/about/tessellate.jpg);
+    background-image: url(../public/mediaprojects/about/tessellate.jpg);
 }
 
 iframe {
