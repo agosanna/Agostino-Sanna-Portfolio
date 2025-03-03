@@ -2,15 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "./public/mediaprojects/threadsofsilk/THE MAP.webp", text: "We began with extensive research, combining desk research and museum visits to identify strengths, weaknesses, and opportunities for enhancing the visitor experience." },
-                { src: "./public/mediaprojects/threadsofsilk/Cover.webp", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
-                { src: "./public/mediaprojects/threadsofsilk/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
-                { src: "./public/mediaprojects/threadsofsilk/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
+                { src: "../public/mediaprojects/threadsofsilk/THE MAP.webp", text: "We began with extensive research, combining desk research and museum visits to identify strengths, weaknesses, and opportunities for enhancing the visitor experience." },
+                { src: "../public/mediaprojects/threadsofsilk/Cover.webp", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
+                { src: "../public/mediaprojects/threadsofsilk/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
+                { src: "../public/mediaprojects/threadsofsilk/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
             ],
             [
-                { src: "./public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - First slide description." },
-                { src: "./public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Second slide description." },
-                { src: "./public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Third slide description." }
+                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - First slide description." },
+                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Second slide description." },
+                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Third slide description." }
             ]
         ];
         

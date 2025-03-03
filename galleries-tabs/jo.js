@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "./public/mediaprojects/jo/our system.jpg", text: "1/5 - Defining and sketching the system has been a good starting point to understand what should we have tested and what should not." },
-                { src: "./public/mediaprojects/jo/2", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
-                { src: "./public/mediaprojects/jo/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
-                { src: "./public/mediaprojects/jo/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
+                { src: "../public/mediaprojects/jo/our system.jpg", text: "1/5 - Defining and sketching the system has been a good starting point to understand what should we have tested and what should not." },
+                { src: "../public/mediaprojects/jo/2", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
+                { src: "../public/mediaprojects/jo/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
+                { src: "../public/mediaprojects/jo/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
             ],
         ];
         
