@@ -1,6 +1,6 @@
 const textContainer = document.getElementById('splash-page');
 
-let shaderScaleFactor = 0.6;
+let shaderScaleFactor;
 
 function updateShaderScaleFactor() {
     let screenWidth = window.innerWidth;
@@ -16,16 +16,17 @@ function updateShaderScaleFactor() {
         planeMesh.material.uniforms.u_pixelSize.value = 20.0;
     }
 
-    // Update shader uniform
-    if (planeMesh && planeMesh.material.uniforms.u_scale) {
-        planeMesh.material.uniforms.u_scale.value = shaderScaleFactor;
-    }
 }
 
 window.addEventListener("resize", () => {
     updateShaderScaleFactor();
     onWindowResize();
 });
+
+window.addEventListener("load. () => { 
+    updateShaderScaleFactor();              
+});
+                        
 
 let easeFactor = 0.02;
 let scene, camera, renderer, planeMesh;
@@ -46,14 +47,12 @@ const fragmentShader = `
     uniform sampler2D u_texture;
     uniform vec2 u_mouse;
     uniform vec2 u_prevMouse;
-    uniform float u_scale;
     uniform vec2 u_resolution;
     uniform float u_pixelSize;
 
 
     void main() {
         vec2 aspectRatio = vec2(1.0, u_resolution.x / u_resolution.y); // Aspect correction
-        vec2 scaledUv = (vUv - 0.5) * u_scale * aspectRatio + 0.5; // Apply scaling properly 
 
         vec2 gridUV = floor(vUv * vec2(u_pixelSize, u_pixelSize)) / vec2(u_pixelSize, u_pixelSize);
         vec2 centerOfPixel = gridUV + vec2(1.0/u_pixelSize, 1.0/u_pixelSize);
@@ -86,7 +85,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     ctx.fillStyle = color || 'black';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    const fontSize = size || Math.floor(canvasWidth * 2);
+    const fontSize = size || Math.floor(canvasWidth * 2) * shaderScaleFactor;
 
     ctx.fillStyle = "white";
     ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
@@ -98,19 +97,6 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 
     const textMetrics = ctx.measureText(text);
     const textWidth = textMetrics.width;
-
-    const scaleFactor = Math.min(1, (canvasWidth * shaderScaleFactor) / textWidth);
-    const aspectCorrection = canvasWidth / canvasHeight;
-
-    ctx.setTransform(
-        scaleFactor,
-        0,
-        0,
-        scaleFactor / aspectCorrection,
-        canvasWidth / 2,
-        canvasHeight / 2
-    );
-
     ctx.strokeStyle = 'white';
     ctx.lineWidth = fontSize * 0.005;
     for (let i = 0; i < 3; i++) {
@@ -141,7 +127,6 @@ function initializeScene(texture) {
         u_mouse: { type: "v2", value: new THREE.Vector2() },
         u_prevMouse: { type: "v2", value: new THREE.Vector2() },
         u_texture: { type:"t", value: texture },
-        u_scale: { type: "f", value: shaderScaleFactor },
         u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         u_pixelSize: { type: "f", value: 40.0 },
     };
@@ -175,7 +160,6 @@ function reloadTexture() {
     );
 
     planeMesh.material.uniforms.u_texture.value = newTexture;
-    planeMesh.material.uniforms.u_scale.value = shaderScaleFactor;
     planeMesh.material.uniforms.u_pixelSize.value = planeMesh.material.uniforms.u_pixelSize.value;
 
 }
