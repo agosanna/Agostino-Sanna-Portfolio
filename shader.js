@@ -174,7 +174,6 @@ function reloadTexture() {
 }
 
 initializeScene(
-    console.log("font: " + ctx.font),
     createTextTexture("Interaction Designer based in Milan.", "Aktiv Grotesk", null, "black", "300")
 );
 
