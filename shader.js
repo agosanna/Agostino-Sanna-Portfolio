@@ -191,17 +191,28 @@ function handleTouchEnd() {
 }
 
 function onWindowResize() {
-    // Adjust camera to maintain aspect ratio
-    const aspectRatio = window.innerWidth / window.innerHeight;
+    let container = textContainer.getBoundingClientRect();
+    let aspectRatio = container.width / container.height;
+
+    // Update renderer size to match container
+    renderer.setSize(container.width, container.height);
+    
+    // Adjust orthographic camera to match new aspect ratio
     camera.left = -1;
     camera.right = 1;
     camera.top = 1 / aspectRatio;
     camera.bottom = -1 / aspectRatio;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+    // Adjust planeMesh size to prevent distortion
+    let scaleX = aspectRatio > 1 ? 1 : aspectRatio;
+    let scaleY = aspectRatio > 1 ? 1 / aspectRatio : 1;
+    planeMesh.scale.set(scaleX, scaleY, 1);
 
-    // Regenerate texture with proper aspect ratio
+    // Update shader uniforms
+    planeMesh.material.uniforms.u_resolution.value.set(container.width, container.height);
+
+    // Reload texture with correct aspect ratio
     reloadTexture();
 }
+
