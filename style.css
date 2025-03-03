@@ -239,6 +239,7 @@ header a:hover {
 
 .next-container:hover {
   transform: translateX(1vw);
+  z-index: -2;
 }
 
 img {

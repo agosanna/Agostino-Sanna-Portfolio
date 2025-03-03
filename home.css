@@ -29,7 +29,7 @@
   #works-container{
     scroll-snap-align: start;
     margin: 0 15vw;
-    height: calc(100vh);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,3 +74,23 @@
   footer {
     scroll-snap-align: end;
   }
+
+@media (max-width: 768px) {
+  #scroll-cta {
+    display: none;
+  }
+
+  html {
+    scroll-snap-type: none;
+  }
+
+  #splash-page {
+    height: 30vh;
+  }
+
+  #works-container {
+    height: 70vh;
+  }
+
+
+}
