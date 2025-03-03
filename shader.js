@@ -7,10 +7,13 @@ function updateShaderScaleFactor() {
 
     if (screenWidth < 768) {
         shaderScaleFactor = 0.7; // Mobile
+        planeMesh.material.uniforms.u_pixelSize.value = 20.0; 
     } else if (screenWidth < 1024) {
         shaderScaleFactor = 0.6; // Tablet
+        planeMesh.material.uniforms.u_pixelSize.value = 30.0;
     } else {
         shaderScaleFactor = 0.4 // Desktop
+        planeMesh.material.uniforms.u_pixelSize.value = 40.0;
     }
 
     // Update shader uniform
@@ -53,7 +56,7 @@ const fragmentShader = `
         vec2 scaledUv = (vUv - 0.5) * u_scale * aspectRatio + 0.5; // Apply scaling properly 
 
         vec2 gridUV = floor(vUv * vec2(u_pixelSize, u_pixelSize)) / vec2(u_pixelSize, u_pixelSize);
-        vec2 centerOfPixel = gridUV + vec2(1.0/40.0, 1.0/40.0);
+        vec2 centerOfPixel = gridUV + vec2(1.0/u_pixelSize, 1.0/u_pixelSize);
 
         vec2 mouseDirection = u_mouse - u_prevMouse;
 
