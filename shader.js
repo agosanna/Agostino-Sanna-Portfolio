@@ -48,7 +48,7 @@ const fragmentShader = `
     uniform vec2 u_prevMouse;
     uniform float u_scale;
     uniform vec2 u_resolution;
-    u_pixelSize: { type: "f", value: 40.0 }
+    uniform float u_pixelSize;
 
 
     void main() {
@@ -142,7 +142,8 @@ function initializeScene(texture) {
         u_prevMouse: { type: "v2", value: new THREE.Vector2() },
         u_texture: { type:"t", value: texture },
         u_scale: { type: "f", value: shaderScaleFactor },
-        u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+        u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+        u_pixelSize: { type: "f", value: 40.0 },
     };
 
     planeMesh = new THREE.Mesh(
