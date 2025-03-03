@@ -16,8 +16,16 @@ function updateShaderScaleFactor() {
     }
 }
 
-window.addEventListener("resize", updateShaderScaleFactor);
-window.addEventListener("load", updateShaderScaleFactor);
+window.addEventListener("resize", () => { 
+    updateShaderScaleFactor();  // Assicura il valore giusto
+    reloadTexture();            // Rigenera la texture correttamente
+});
+
+window.addEventListener("load", () => { 
+    updateShaderScaleFactor();  // Assicura il valore giusto
+    reloadTexture();            // Rigenera la texture correttamente
+    onWindowResize();           // Forza il ridimensionamento
+});
 
 let easeFactor = 0.02;
 let scene, camera, renderer, planeMesh;
