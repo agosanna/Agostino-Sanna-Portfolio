@@ -12,7 +12,7 @@ function updateShaderScaleFactor() {
         shaderScaleFactor = 0.6; // Tablet
         planeMesh.material.uniforms.u_pixelSize.value = 10.0;
     } else {
-        shaderScaleFactor = 0.4 // Desktop
+        shaderScaleFactor = 0.4; // Desktop
         planeMesh.material.uniforms.u_pixelSize.value = 20.0;
     }
 
@@ -48,7 +48,7 @@ const fragmentShader = `
     uniform vec2 u_prevMouse;
     uniform float u_scale;
     uniform vec2 u_resolution;
-    u_pixelSize: { type: "f", value: 40.0 } /
+    u_pixelSize: { type: "f", value: 40.0 }
 
 
     void main() {
@@ -175,6 +175,7 @@ function reloadTexture() {
 
     planeMesh.material.uniforms.u_texture.value = newTexture;
     planeMesh.material.uniforms.u_scale.value = shaderScaleFactor;
+    planeMesh.material.uniforms.u_pixelSize.value = planeMesh.material.uniforms.u_pixelSize.value;
 
 }
 
