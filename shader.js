@@ -20,10 +20,9 @@ function updateShaderScaleFactor() {
 
 window.addEventListener("resize", () => {
     updateShaderScaleFactor();
-    onWindowResize();
 });
 
-window.addEventListener("load" () => { 
+window.addEventListener("load", () => { 
     updateShaderScaleFactor();              
 });
                         
@@ -148,6 +147,7 @@ function initializeScene(texture) {
     renderer.setPixelRatio(window.devicePixelRatio);
 
     textContainer.appendChild(renderer.domElement);
+    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 }
 
 function reloadTexture() {
@@ -160,6 +160,7 @@ function reloadTexture() {
     );
 
     planeMesh.material.uniforms.u_texture.value = newTexture;
+    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 
 }
 
