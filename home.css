@@ -92,5 +92,9 @@
     height: 70vh;
   }
 
+  a.menu-item {
+    padding: 1vh
+  }
+
 
 }
