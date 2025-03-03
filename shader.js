@@ -33,15 +33,15 @@ let mousePosition = { x: 0.5, y: 0.5 };
 let targetMousePosition = { x: 0.5, y: 0.5 };
 let prevPosition = { x: 0.5, y: 0.5 };
 
-const vertexShader = 
+const vertexShader = `
     varying vec2 vUv;
     void main() {
         vUv = uv;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
-;
+`;
 
-const fragmentShader = 
+const fragmentShader = `
     varying vec2 vUv;
     uniform sampler2D u_texture;
     uniform vec2 u_mouse;
@@ -61,7 +61,7 @@ const fragmentShader =
         vec4 color = texture2D(u_texture, uv);
         gl_FragColor = color;
     }
-;
+`;
 
 function createTextTexture(text, font, size, color, fontWeight = "300") {
     const canvas = document.createElement('canvas');
