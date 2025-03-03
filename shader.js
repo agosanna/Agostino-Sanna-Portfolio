@@ -85,7 +85,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     const fontSize = size || Math.floor(canvasWidth * 2);
 
     ctx.fillStyle = "white";
-    ctx.font = `${fontWeight} ${fontSize}px "${font || "Aktiv Grotesk"}"`;
+    ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
@@ -163,7 +163,7 @@ function initializeScene(texture) {
 function reloadTexture() {
     const newTexture = createTextTexture(
         "Interaction Designer based in Milan.",
-        "Aktiv Grotesk",
+        "DM Sans",
         null,
         "black",
         "300"
@@ -175,7 +175,7 @@ function reloadTexture() {
 }
 
 initializeScene(
-    createTextTexture("Interaction Designer based in Milan.", "Aktiv Grotesk", null, "black", "300")
+    createTextTexture("Interaction Designer based in Milan.", "DM Sans", null, "black", "300")
 );
 
 function animateScene() {
