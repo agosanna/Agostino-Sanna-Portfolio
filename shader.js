@@ -6,10 +6,10 @@ function updateShaderScaleFactor() {
 
     if (screenWidth < 768) {
         shaderScaleFactor = 1; // Mobile
-        planeMesh.material.uniforms.u_pixelSize.value = 90.0; 
+        planeMesh.material.uniforms.u_pixelSize.value = 40.0; 
     } else if (screenWidth < 1024) {
         shaderScaleFactor = 0.7; // Tablet
-        planeMesh.material.uniforms.u_pixelSize.value = 80.0;
+        planeMesh.material.uniforms.u_pixelSize.value = 60.0;
     } else {
         shaderScaleFactor = 0.6; // Desktop
         planeMesh.material.uniforms.u_pixelSize.value = 70.0;
