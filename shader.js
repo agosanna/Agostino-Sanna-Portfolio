@@ -5,14 +5,14 @@ function updateShaderScaleFactor() {
     let screenWidth = window.innerWidth;
 
     if (screenWidth < 768) {
-        shaderScaleFactor = 0.9; // Mobile
-        planeMesh.material.uniforms.u_pixelSize.value = 3.0; 
+        shaderScaleFactor = 1; // Mobile
+        planeMesh.material.uniforms.u_pixelSize.value = 90.0; 
     } else if (screenWidth < 1024) {
         shaderScaleFactor = 0.7; // Tablet
-        planeMesh.material.uniforms.u_pixelSize.value = 7.0;
+        planeMesh.material.uniforms.u_pixelSize.value = 80.0;
     } else {
         shaderScaleFactor = 0.6; // Desktop
-        planeMesh.material.uniforms.u_pixelSize.value = 10.0;
+        planeMesh.material.uniforms.u_pixelSize.value = 70.0;
     }
 }
 
@@ -101,8 +101,10 @@ function initializeScene(texture) {
         u_prevMouse: { type: "v2", value: new THREE.Vector2() },
         u_texture: { type: "t", value: texture },
         u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-        u_pixelSize: { type: "f", value: 40.0 },
+        u_pixelSize: { type: "f", value: null },
     };
+
+    updateShaderScaleFactor();
 
     planeMesh = new THREE.Mesh(
         new THREE.PlaneGeometry(2, 2),
@@ -135,9 +137,15 @@ function animateScene() {
 }
 animateScene();
 
+// Mouse events
 textContainer.addEventListener('mousemove', handleMouseMove);
 textContainer.addEventListener('mouseenter', handleMouseEnter);
 textContainer.addEventListener('mouseleave', handleMouseLeave);
+
+// Touch events
+textContainer.addEventListener('touchstart', handleTouchStart);
+textContainer.addEventListener('touchmove', handleTouchMove);
+textContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleMouseMove(event) {
     easeFactor = 0.04;
@@ -152,6 +160,34 @@ function handleMouseEnter(event) {
     let rect = textContainer.getBoundingClientRect();
     mousePosition.x = targetMousePosition.x = (event.clientX - rect.left) / rect.width;
     mousePosition.y = targetMousePosition.y = (event.clientY - rect.top) / rect.height;
+}
+
+function handleMouseLeave() {
+    easeFactor = 0.01;
+}
+
+function handleTouchStart(event) {
+    event.preventDefault();
+    easeFactor = 0.02;
+    let rect = textContainer.getBoundingClientRect();
+    const touch = event.touches[0];
+    mousePosition.x = targetMousePosition.x = (touch.clientX - rect.left) / rect.width;
+    mousePosition.y = targetMousePosition.y = (touch.clientY - rect.top) / rect.height;
+    prevPosition = { ...targetMousePosition };
+}
+
+function handleTouchMove(event) {
+    event.preventDefault();
+    easeFactor = 0.04;
+    let rect = textContainer.getBoundingClientRect();
+    const touch = event.touches[0];
+    prevPosition = { ...targetMousePosition };
+    targetMousePosition.x = (touch.clientX - rect.left) / rect.width;
+    targetMousePosition.y = (touch.clientY - rect.top) / rect.height;
+}
+
+function handleTouchEnd() {
+    easeFactor = 0.01;
 }
 
 function onWindowResize() {
