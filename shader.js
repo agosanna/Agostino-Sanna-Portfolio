@@ -75,8 +75,9 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    const canvasWidth = window.innerWidth * 2;
-    const canvasHeight = window.innerHeight * 2;
+    const dpr = window.devicePixelRatio || 1;
+    const canvasWidth = window.innerWidth * dpr;
+    const canvasHeight = window.innerHeight * dpr;
 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
@@ -84,7 +85,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     ctx.fillStyle = color || 'black';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    const fontSize = size || Math.floor(canvasWidth * 2) * shaderScaleFactor * 0.5;
+    const fontSize = size || Math.min(canvasWidth, canvasHeight) * 0.1 * shaderScaleFactor;
 
     ctx.fillStyle = "white";
     ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
@@ -94,20 +95,13 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
 
-    const textMetrics = ctx.measureText(text);
-    const textWidth = textMetrics.width * shaderScaleFactor * 0.5;
-    ctx.strokeStyle = 'white';
-    ctx.lineWidth = fontSize * 0.005;
-    for (let i = 0; i < 3; i++) {
-        ctx.strokeText(text, canvasWidth / 2, canvasHeight / 2);
-    }
-
     ctx.fillText(text, canvasWidth / 2, canvasHeight / 2);
 
-    console.log("font: " + ctx.font); 
+    console.log("Font:", ctx.font, "Canvas size:", canvas.width, canvas.height);
 
     return new THREE.CanvasTexture(canvas);
 }
+
 
 function initializeScene(texture) {
     scene = new THREE.Scene();
