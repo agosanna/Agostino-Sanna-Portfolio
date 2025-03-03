@@ -86,6 +86,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 
     ctx.fillStyle = "white";
     ctx.font = `${fontWeight} ${fontSize}px "${font || "Aktiv Grotesk"}"`;
+    console.log(ctx.font);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
