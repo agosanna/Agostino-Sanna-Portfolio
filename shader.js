@@ -104,12 +104,12 @@ function initializeScene(texture) {
         u_pixelSize: { type: "f", value: null },
     };
 
-    updateShaderScaleFactor();
-
     planeMesh = new THREE.Mesh(
         new THREE.PlaneGeometry(2, 2),
         new THREE.ShaderMaterial({ uniforms: shaderUniforms, vertexShader, fragmentShader })
     );
+
+    updateShaderScaleFactor();
 
     scene.add(planeMesh);
     renderer = new THREE.WebGLRenderer({ antialias: true });
