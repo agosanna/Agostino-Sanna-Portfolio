@@ -78,7 +78,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 
     const fontSize = size || Math.min(canvasWidth, canvasHeight) * 0.1 * shaderScaleFactor;
     ctx.fillStyle = "white";
-    ctx.font = ${fontWeight} ${fontSize}px "${font || "DM Sans"}";
+    ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, canvasWidth / 2, canvasHeight / 2);
