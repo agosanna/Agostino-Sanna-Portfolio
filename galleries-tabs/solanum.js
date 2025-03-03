@@ -2,20 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "/public/mediaprojects/solanum/sketching.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/sketching.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
             ],
             [
-                { src: "/public/mediaprojects/solanum/esploso.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"}
+                { src: "./public/mediaprojects/solanum/esploso.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"}
             ],
             [
-                { src: "/public/mediaprojects/solanum/esploso.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
-                { src: "/public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/esploso.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
+                { src: "./public/mediaprojects/solanum/image.jpg"},
             ]
         ];
         
