@@ -18,11 +18,13 @@ function updateShaderScaleFactor() {
 
 window.addEventListener("resize", () => { 
     updateShaderScaleFactor();
+    onWindowResize();
 });
 
 window.addEventListener("load", () => { 
     updateShaderScaleFactor();  // Assicura il valore giusto
-    reloadTexture();            // Rigenera la texture correttamente
+    reloadTexture(); // Rigenera la texture correttamente
+    onWindowResize();
 });
 
 let easeFactor = 0.02;
