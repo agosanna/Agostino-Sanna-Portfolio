@@ -11,22 +11,22 @@ if (window.innerWidth > 768) {
 
 const imageSets = {
 "l-1": [
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
 ],
 "l-2": [
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
 ],
 "l-3": [
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
-    "/public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
+    "./public/mediaprojects/about/walkin.jpg",
 ]
 };
 
