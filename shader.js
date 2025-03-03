@@ -67,16 +67,20 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    const canvasWidth = window.innerWidth * dpr;
-    const canvasHeight = window.innerHeight * dpr;
+    
+    // Usa un aspect ratio fisso (es. 2:1 per schermi widescreen)
+    let baseSize = 1024; 
+    const canvasWidth = baseSize * 2; // Larghezza doppia dell'altezza
+    const canvasHeight = baseSize;
 
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    canvas.width = canvasWidth * dpr;
+    canvas.height = canvasHeight * dpr;
+    ctx.scale(dpr, dpr);
 
     ctx.fillStyle = color || 'black';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    const fontSize = size || Math.min(canvasWidth, canvasHeight) * 0.1 * shaderScaleFactor;
+    const fontSize = size || canvasHeight * 0.2;
     ctx.fillStyle = "white";
     ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
     ctx.textAlign = 'center';
@@ -85,6 +89,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 
     return new THREE.CanvasTexture(canvas);
 }
+
 
 function initializeScene(texture) {
     scene = new THREE.Scene();
@@ -156,15 +161,14 @@ function handleMouseLeave() {
 
 function onWindowResize() {
     const aspectRatio = window.innerWidth / window.innerHeight;
-    camera.left = -1;
-    camera.right = 1;
-    camera.top = 1 / aspectRatio;
-    camera.bottom = -1 / aspectRatio;
-    camera.updateProjectionMatrix();
 
+    // Adatta la geometria del piano per rispettare il rapporto d'aspetto
+    planeMesh.scale.x = aspectRatio;
+
+    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 
     reloadTexture();
-
 }
+
