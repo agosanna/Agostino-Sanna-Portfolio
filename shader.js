@@ -45,13 +45,14 @@ const fragmentShader = `
     uniform vec2 u_prevMouse;
     uniform float u_scale;
     uniform vec2 u_resolution;
+    u_pixelSize: { type: "f", value: 40.0 } /
 
 
     void main() {
         vec2 aspectRatio = vec2(1.0, u_resolution.x / u_resolution.y); // Aspect correction
         vec2 scaledUv = (vUv - 0.5) * u_scale * aspectRatio + 0.5; // Apply scaling properly 
 
-        vec2 gridUV = floor(vUv * vec2(40.0, 40.0)) / vec2(40.0, 40.0);
+        vec2 gridUV = floor(vUv * vec2(u_pixelSize, u_pixelSize)) / vec2(u_pixelSize, u_pixelSize);
         vec2 centerOfPixel = gridUV + vec2(1.0/40.0, 1.0/40.0);
 
         vec2 mouseDirection = u_mouse - u_prevMouse;
