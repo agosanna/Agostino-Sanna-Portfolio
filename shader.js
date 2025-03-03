@@ -23,7 +23,7 @@ window.addEventListener("resize", () => {
     onWindowResize();
 });
 
-window.addEventListener("load. () => { 
+window.addEventListener("load" () => { 
     updateShaderScaleFactor();              
 });
                         
@@ -100,10 +100,10 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     ctx.strokeStyle = 'white';
     ctx.lineWidth = fontSize * 0.005;
     for (let i = 0; i < 3; i++) {
-        ctx.strokeText(text, 0, 0);
+        ctx.strokeText(text, canvasWidth / 2, canvasHeight / 2);
     }
 
-    ctx.fillText(text, 0, 0);
+    ctx.fillText(text, canvasWidth / 2, canvasHeight / 2);
 
     console.log("font: " + ctx.font); 
 
@@ -160,7 +160,6 @@ function reloadTexture() {
     );
 
     planeMesh.material.uniforms.u_texture.value = newTexture;
-    planeMesh.material.uniforms.u_pixelSize.value = planeMesh.material.uniforms.u_pixelSize.value;
 
 }
 
