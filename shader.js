@@ -68,28 +68,28 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     
-    // Usa un aspect ratio fisso (es. 2:1 per schermi widescreen)
-    let baseSize = 1024; 
-    const canvasWidth = baseSize * 2; // Larghezza doppia dell'altezza
-    const canvasHeight = baseSize;
-
-    canvas.width = canvasWidth * dpr;
-    canvas.height = canvasHeight * dpr;
-    ctx.scale(dpr, dpr);
+    // Make the canvas square to avoid stretching
+    const dimension = Math.max(window.innerWidth, window.innerHeight) * dpr;
+    canvas.width = dimension;
+    canvas.height = dimension;
 
     ctx.fillStyle = color || 'black';
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    ctx.fillRect(0, 0, dimension, dimension);
 
-    const fontSize = size || canvasHeight * 0.2;
+    // Calculate font size based on canvas dimension
+    const fontSize = size || dimension * 0.05 * shaderScaleFactor;
     ctx.fillStyle = "white";
     ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, canvasWidth / 2, canvasHeight / 2);
+    ctx.fillText(text, dimension / 2, dimension / 2);
 
-    return new THREE.CanvasTexture(canvas);
+    // Create texture with correct mapping
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    return texture;
 }
-
 
 function initializeScene(texture) {
     scene = new THREE.Scene();
@@ -154,21 +154,18 @@ function handleMouseEnter(event) {
     mousePosition.y = targetMousePosition.y = (event.clientY - rect.top) / rect.height;
 }
 
-function handleMouseLeave() {
-    easeFactor = 0.02;
-    targetMousePosition = { ...prevPosition };
-}
-
 function onWindowResize() {
+    // Adjust camera to maintain aspect ratio
     const aspectRatio = window.innerWidth / window.innerHeight;
-
-    // Adatta la geometria del piano per rispettare il rapporto d'aspetto
-    planeMesh.scale.x = aspectRatio;
-
+    camera.left = -1;
+    camera.right = 1;
+    camera.top = 1 / aspectRatio;
+    camera.bottom = -1 / aspectRatio;
     camera.updateProjectionMatrix();
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 
+    // Regenerate texture with proper aspect ratio
     reloadTexture();
 }
-
