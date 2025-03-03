@@ -121,6 +121,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 function initializeScene(texture) {
     scene = new THREE.Scene();
 
+    console.log("font: " + ctx.font); 
     const aspectRatio = window.innerWidth / window.innerHeight;
     camera = new THREE.OrthographicCamera(
         -1,
