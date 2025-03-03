@@ -17,18 +17,19 @@ function updateShaderScaleFactor() {
 }
 
 function onWindowResize() {
-    const aspectRatio = window.innerWidth / window.innerHeight;
-    camera.left = -1;
-    camera.right = 1;
-    camera.top = 1 / aspectRatio;
-    camera.bottom = -1 / aspectRatio;
+    let aspect = window.innerWidth / window.innerHeight;
+    
+    // Mantiene il rapporto di dimensioni corretto
+    camera.left = -aspect;
+    camera.right = aspect;
+    camera.top = 1;
+    camera.bottom = -1;
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
     planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
-    reloadTexture();
+
+    reloadTexture(); // Ricarica la texture con la nuova risoluzione
 }
 
 window.addEventListener("resize", () => { 
