@@ -16,15 +16,30 @@ function updateShaderScaleFactor() {
     }
 }
 
+function onWindowResize() {
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    camera.left = -1;
+    camera.right = 1;
+    camera.top = 1 / aspectRatio;
+    camera.bottom = -1 / aspectRatio;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+    reloadTexture();
+}
+
 window.addEventListener("resize", () => { 
-    updateShaderScaleFactor();  // Assicura il valore giusto
-    reloadTexture();            // Rigenera la texture correttamente
+    updateShaderScaleFactor();
+    onWindowResize();
 });
 
 window.addEventListener("load", () => { 
-    updateShaderScaleFactor();  // Assicura il valore giusto
-    reloadTexture();            // Rigenera la texture correttamente
-    onWindowResize();           // Forza il ridimensionamento
+    updateShaderScaleFactor();
+    reloadTexture();
+    onWindowResize();
 });
 
 let easeFactor = 0.02;
@@ -153,9 +168,3 @@ function handleMouseLeave() {
     easeFactor = 0.02;
     targetMousePosition = { ...prevPosition };
 }
-
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
-    reloadTexture();
-});
