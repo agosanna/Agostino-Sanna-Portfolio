@@ -16,31 +16,15 @@ function updateShaderScaleFactor() {
     }
 }
 
-function onWindowResize() {
-    let aspect = window.innerWidth / window.innerHeight;
-    
-    // Mantiene il rapporto di dimensioni corretto
-    camera.left = -aspect;
-    camera.right = aspect;
-    camera.top = 1;
-    camera.bottom = -1;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
-
-    reloadTexture(); // Ricarica la texture con la nuova risoluzione
-}
-
 window.addEventListener("resize", () => { 
     updateShaderScaleFactor();
     onWindowResize();
 });
 
 window.addEventListener("load", () => { 
-    updateShaderScaleFactor();
-    reloadTexture();
-    onWindowResize();
+    updateShaderScaleFactor();  // Assicura il valore giusto
+    reloadTexture();            // Rigenera la texture correttamente
+    onWindowResize();           // Forza il ridimensionamento
 });
 
 let easeFactor = 0.02;
@@ -49,15 +33,15 @@ let mousePosition = { x: 0.5, y: 0.5 };
 let targetMousePosition = { x: 0.5, y: 0.5 };
 let prevPosition = { x: 0.5, y: 0.5 };
 
-const vertexShader = `
+const vertexShader = 
     varying vec2 vUv;
     void main() {
         vUv = uv;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
-`;
+;
 
-const fragmentShader = `
+const fragmentShader = 
     varying vec2 vUv;
     uniform sampler2D u_texture;
     uniform vec2 u_mouse;
@@ -77,7 +61,7 @@ const fragmentShader = `
         vec4 color = texture2D(u_texture, uv);
         gl_FragColor = color;
     }
-`;
+;
 
 function createTextTexture(text, font, size, color, fontWeight = "300") {
     const canvas = document.createElement('canvas');
@@ -94,7 +78,7 @@ function createTextTexture(text, font, size, color, fontWeight = "300") {
 
     const fontSize = size || Math.min(canvasWidth, canvasHeight) * 0.1 * shaderScaleFactor;
     ctx.fillStyle = "white";
-    ctx.font = `${fontWeight} ${fontSize}px "${font || "DM Sans"}"`;
+    ctx.font = ${fontWeight} ${fontSize}px "${font || "DM Sans"}";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, canvasWidth / 2, canvasHeight / 2);
@@ -169,3 +153,9 @@ function handleMouseLeave() {
     easeFactor = 0.02;
     targetMousePosition = { ...prevPosition };
 }
+
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    planeMesh.material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+    reloadTexture();
+});
