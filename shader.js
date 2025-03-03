@@ -5,14 +5,14 @@ function updateShaderScaleFactor() {
     let screenWidth = window.innerWidth;
 
     if (screenWidth < 768) {
-        shaderScaleFactor = 0.7; // Mobile
-        planeMesh.material.uniforms.u_pixelSize.value = 5.0; 
+        shaderScaleFactor = 0.9; // Mobile
+        planeMesh.material.uniforms.u_pixelSize.value = 3.0; 
     } else if (screenWidth < 1024) {
-        shaderScaleFactor = 0.6; // Tablet
-        planeMesh.material.uniforms.u_pixelSize.value = 10.0;
+        shaderScaleFactor = 0.7; // Tablet
+        planeMesh.material.uniforms.u_pixelSize.value = 7.0;
     } else {
-        shaderScaleFactor = 0.4; // Desktop
-        planeMesh.material.uniforms.u_pixelSize.value = 20.0;
+        shaderScaleFactor = 0.6; // Desktop
+        planeMesh.material.uniforms.u_pixelSize.value = 10.0;
     }
 }
 
