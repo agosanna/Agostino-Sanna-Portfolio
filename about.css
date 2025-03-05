@@ -170,11 +170,12 @@ iframe {
         position: absolute;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 50vh;
         pointer-events: none;
         display: flex;
         flex-direction: column;
         gap: 2vh;
+        align-items: center;
         justify-content: center;
     }
 }
