@@ -85,16 +85,19 @@
   }
 
   #splash-page {
-    height: 70vh;
+    height: 60vh;
+  }
+
+  #preview {
+    display: none;
   }
 
   #works-container {
-    height: 30vh;
+    height: 40vh;
+    margin: 0 10vw;
+    padding-bottom: 7vh;
+    & a.menu-item {
+      padding: 1vh 0;
+    }
   }
-
-  a.menu-item {
-    padding: 1vh
-  }
-
-
 }

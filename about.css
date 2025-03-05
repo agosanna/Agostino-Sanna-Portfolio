@@ -116,13 +116,13 @@ iframe {
     height: 50vh;
     pointer-events: none;
     display: flex;
-    gap: 10vw;
+    gap: 5vw;
     justify-content: center;
 }
 
 #image-container img {
     width: 15vw;
-    height: 15vw;
+    height: fit-content;
     object-fit: cover;
     border-radius: 10px;
     transition: opacity 0.3s ease-in-out;

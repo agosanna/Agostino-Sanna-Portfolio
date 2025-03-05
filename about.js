@@ -10,24 +10,44 @@ if (window.innerWidth > 768) {
 }
 
 const imageSets = {
-"l-1": [
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
+"Ago": [
+    "./public/mediaprojects/about/ago_1.jpg",
+    "./public/mediaprojects/about/ago_2.jpg",
 ],
-"l-2": [
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
+"websites": [
+    "./public/mediaprojects/about/website_1.png",
+    "./public/mediaprojects/about/website_2.jpg",
+    "./public/mediaprojects/about/website_3.jpg",
 ],
-"l-3": [
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-    "./public/mediaprojects/about/walkin.jpg",
-]
+"erasmus": [
+    "./public/mediaprojects/about/erasmus_1.jpg",
+    "./public/mediaprojects/about/erasmus_2.jpg",
+    "./public/mediaprojects/about/erasmus_3.jpg",
+    "./public/mediaprojects/about/erasmus_4.jpg",
+    "./public/mediaprojects/about/erasmus_5.jpg",
+],
+
+"hfg": [
+    "./public/mediaprojects/about/hfg_1.jpg",
+    "./public/mediaprojects/about/hfg_2.jpg",
+    "./public/mediaprojects/about/hfg_3.jpg",
+    "./public/mediaprojects/about/hfg_4.jpg",
+],
+
+"climbing": [
+    "./public/mediaprojects/about/climbing_1.jpg",
+    "./public/mediaprojects/about/climbing_2.jpg",
+    "./public/mediaprojects/about/climbing_3.jpg",
+],
+
+"analog": [
+    "./public/mediaprojects/about/analog_1.jpg",
+    "./public/mediaprojects/about/analog_2.jpg",
+    "./public/mediaprojects/about/analog_3.jpg",
+    "./public/mediaprojects/about/analog_4.jpg",
+],
+
+
 };
 
 links.forEach(link => {

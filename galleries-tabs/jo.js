@@ -2,17 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "../public/mediaprojects/jo/our system.jpg", text: "1/5 - Defining and sketching the system has been a good starting point to understand what should we have tested and what should not." },
-                { src: "../public/mediaprojects/jo/2", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
-                { src: "../public/mediaprojects/jo/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
-                { src: "../public/mediaprojects/jo/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
+            { src: "../public/mediaprojects/jo/our system.jpg", text: "Defining and sketching the system was a crucial starting point to understand what needed to be tested and what did not." },
+            { src: "../public/mediaprojects/jo/storyboard.jpg", text: "We outlined the interaction flow through a simple yet comprehensive storyboard." },
+            { src: "../public/mediaprojects/jo/jo_midfidelity.jpg", text: "After multiple iterations, we designed a mid-fidelity UI with three touchpoints: the central display for ADAS and level switching, the cockpit for Jo's requests, and the steering wheel lever for accepting them." },
+            { src: "../public/mediaprojects/jo/test-setup.jpg", text: "At this stage, we were ready for extensive testing, requiring an immersive setup to accurately evaluate our design in a realistic context." },
             ],
         ];
         
         const prevArrow = slideContainer.querySelector(".arrow:first-of-type");
         const nextArrow = slideContainer.querySelector(".arrow:last-of-type");
         const dots = slideContainer.querySelectorAll(".dot");
-        const textContainer = slideContainer.querySelector("p");
+        const gallery = slideContainer.querySelector(".gallery");
+        const textContainer = gallery.querySelector("p:last-of-type");
         let currentIndex = 0;
   
         function updateGallery(index) {
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Wait for the transition to complete before updating the content
             setTimeout(() => {
             slideImage.src = newImageSrc;
-            textContainer.textContent = newText;
+            textContainer.innerHTML = newText;
 
             // Remove the transition class to fade in
             slideImage.classList.remove("fade-out");

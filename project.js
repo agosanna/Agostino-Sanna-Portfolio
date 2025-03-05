@@ -48,3 +48,20 @@ console.log(bars);
   
     bars.forEach(bar => observer.observe(bar));
 
+const videos = document.querySelectorAll("video");
+
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+                if (entry.target.classList.contains("tos-video")) {
+                  entry.target.playbackRate = 2;
+                }
+            } else {
+                entry.target.pause(); // Optional
+            }
+        });
+    }, { threshold: 0.5 });
+
+    videos.forEach(video => observer2.observe(video));
+

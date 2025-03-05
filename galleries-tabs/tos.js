@@ -2,28 +2,34 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "../public/mediaprojects/threadsofsilk/THE MAP.webp", text: "We began with extensive research, combining desk research and museum visits to identify strengths, weaknesses, and opportunities for enhancing the visitor experience." },
-                { src: "../public/mediaprojects/threadsofsilk/Cover.webp", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
-                { src: "../public/mediaprojects/threadsofsilk/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
-                { src: "../public/mediaprojects/threadsofsilk/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
+            { src: "../public/mediaprojects/threadsofsilk/THE MAP.jpg", text: "We began with extensive research, combining desk research and museum visits to identify strengths, weaknesses, and opportunities for enhancing the visitor experience." },
+            { src: "../public/mediaprojects/threadsofsilk/heritage-map.jpg", text: "We analyzed and categorized all kinds of heritage in the museum to identify any gaps." },
+            { src: "../public/mediaprojects/threadsofsilk/Ecosystem.jpg", text: "We mapped every component of the museum ecosystem" },
+            { src: "../public/mediaprojects/threadsofsilk/photo.jpg", text: "We visited the museum three times to grasp every detail and to talk with the staff" },
             ],
             [
-                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - First slide description." },
-                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Second slide description." },
-                { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg", text: "Gallery 2 - Third slide description." }
+            { src: "../public/mediaprojects/threadsofsilk/storyboard1.jpg"},
+            { src: "../public/mediaprojects/threadsofsilk/storyboard2.jpg"},
+            { src: "../public/mediaprojects/threadsofsilk/storyboard3.jpg"},
+            { src: "../public/mediaprojects/threadsofsilk/wireframes.jpg", text: "We created wireframes to visualize the structure and designed low-fidelity UIs that were used to test the system through user tests and heuristic evaluation" },
             ]
         ];
         
         const prevArrow = slideContainer.querySelector(".arrow:first-of-type");
         const nextArrow = slideContainer.querySelector(".arrow:last-of-type");
         const dots = slideContainer.querySelectorAll(".dot");
-        const textContainer = slideContainer.querySelector("p");
+        const gallery = slideContainer.querySelector(".gallery");
+        const textContainer = gallery.querySelector("p");
         let currentIndex = 0;
   
         function updateGallery(index) {
             const slideImage = slideContainer.querySelector(".slide img");
             const newImageSrc = slides[galleryIndex][index].src;
-            const newText = slides[galleryIndex][index].text;
+            let newText;
+            if (slides[galleryIndex][index].text) {
+                newText = slides[galleryIndex][index].text;
+            }
+            
 
             // Add transition class for fade out
             slideImage.classList.add("fade-out");

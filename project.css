@@ -13,6 +13,13 @@
     --cover: url(./public/mediaprojects/threadsofsilk/Cover.webp);
 }
 
+.O8 {
+    --text: #00000099;
+    --text-accent: #000000;
+    --accent: #000000;
+    --cover: url(./public/Mockup_3.jpg);
+}
+
 .lumos {
     --text: #31244b97;
     --text-accent: #31244B;
@@ -487,7 +494,7 @@ div.btn.active {
 .tab-content {
     display: none;
     width: 100%;
-    & img {
+    & img, video {
         width: 100%;
         margin-bottom: 3vh;
     }
@@ -621,7 +628,7 @@ iframe {
     .container > *, .container-w-gallery > * {
         animation: appear ease-in-out;
         animation-timeline: view();
-        animation-range: entry 10% cover 20%;
+        animation-range: entry 0% cover 30%;
     }
 
     .gallery {

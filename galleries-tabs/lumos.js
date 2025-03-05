@@ -2,15 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".container-w-gallery").forEach((slideContainer, galleryIndex) => {
         const slides = [
             [
-                { src: "../public/mediaprojects/lumos/userflow.jpg", text: "We began with extensive research, combining desk research and museum visits to identify strengths, weaknesses, and opportunities for enhancing the visitor experience." },
-                { src: "../public/mediaprojects/lumos/Cover.webp", text: "We analyzed case studies of successful exhibitions and interactive experiences to gain insights." },
-                { src: "../public/mediaprojects/lumos/THIRD IMAGE.webp", text: "We conducted interviews with museum staff and visitors to understand different perspectives." },
-                { src: "../public/mediaprojects/lumos/FOURTH IMAGE.webp", text: "Data synthesis led to identifying key pain points in the visitor experience." },
+                { src: "../public/mediaprojects/lumos/userflow.jpg", text: "We began by analyzing the user journey and flow of delivery riders to pinpoint challenges and design opportunities for a seamless navigation experience." },
+                { src: "../public/mediaprojects/lumos/interviews.jpg", text: "We interviewed Porsche E-Bikes, Cyclaer (Porsche Digital), and a former Bosch E-Bikes intern to explore bike safety and navigation technologies." },
+                { src: "../public/mediaprojects/lumos/shadowing.webp", text: "We conducted self-shadowing to test the experience of riding with a phone holder, assessing screen visibility and stability on uneven roads." },
+                { src: "../public/mediaprojects/lumos/interaction-mapping.jpg", text: " Finally we conducted a detailed interaction mapping to break down the delivery process, examining each step to better understand rider interactions and identify opportunities for improvement." },
             ],
             [
                 { src: "../public/mediaprojects/lumos/Prototype1.jpg", text: "We integrated an Arduino Uno with Protopie Connect to test the bike's interface, including buttons and LED animations. " },
-                { src: "../public/mediaprojects/lumos/storyboard1.jpg", text: "Gallery 2 - Second slide description." },
-                { src: "../public/mediaprojects/lumos/storyboard1.jpg", text: "Gallery 2 - Third slide description." }
+                { src: "../public/mediaprojects/lumos/Buttons.jpg", text: "Using clay, we shaped multiple button prototypes to refine tactile design, while initial wireframes emphasized clear font sizes and navigation views tailored for bike and hand modes." },
+                { src: "../public/mediaprojects/lumos/Wireframes.jpg", text: "We designed initial app wireframes featuring a hand view for bike data and earnings and a bike view for navigation and rear camera, prioritizing legibility and optimal placement of navigation details." }
             ]
         ];
         

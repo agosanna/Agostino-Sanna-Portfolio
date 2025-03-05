@@ -242,7 +242,7 @@ header a:hover {
   z-index: -2;
 }
 
-img {
+img, video {
   border-radius: 16px;
 }
 
@@ -292,6 +292,11 @@ img {
 }
 
 @media (max-width: 768px) {
+
+  *:hover {
+    transform: none;
+  }
+
   h1 {
     font-size: 2em;
   }
