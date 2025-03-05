@@ -156,4 +156,25 @@ iframe {
     .song:hover .description {
         display: none;
     }
+
+    #image-container img {
+        width: fit-content;
+        height: 10vh;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 3;
+    }
+
+    #image-container {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        justify-content: center;
+    }
 }
