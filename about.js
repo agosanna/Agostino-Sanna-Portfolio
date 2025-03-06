@@ -50,7 +50,7 @@ const imageSets = {
 "communication": [
     "./public/mediaprojects/about/c_1.jpeg",
     "./public/mediaprojects/about/c_2.jpg",
-    "./public/mediaprojects/about/c_3.jpg",
+    "./public/mediaprojects/about/c_3.JPG",
 ],
 
 "did" : [
