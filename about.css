@@ -158,12 +158,13 @@ iframe {
     }
 
     #image-container img {
-        width: fit-content;
-        height: 10vh;
+        width: auto;
+        height: 20vh;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 8px;
         transition: opacity 0.3s ease-in-out;
         z-index: 3;
+        pointer-events: all;
     }
 
     #image-container {
@@ -171,11 +172,19 @@ iframe {
         left: 0;
         width: 100vw;
         height: 50vh;
-        pointer-events: none;
         display: flex;
         flex-direction: column;
-        gap: 2vh;
+        gap: 0;
         align-items: center;
         justify-content: center;
+        pointer-events: none;
+    }
+
+    #about p {
+        pointer-events: none;
+    }
+
+    #about p a {
+        pointer-events: all;
     }
 }

@@ -85,7 +85,7 @@
   }
 
   #splash-page {
-    height: 60vh;
+    height: 55vh;
   }
 
   #preview {
@@ -99,5 +99,6 @@
     & a.menu-item {
       padding: 1vh 0;
     }
+    z-index: 3;
   }
 }

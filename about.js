@@ -103,7 +103,7 @@ links.forEach(link => {
 
             // Position the image container below the link
             const aboutRect = document.getElementById("about").getBoundingClientRect();
-            const centerY = (aboutRect.bottom - aboutRect.top) / 2 + window.scrollY;        
+            const centerY = (aboutRect.bottom - aboutRect.top) / 2 + window.scrollY - 50;        
 
             imageContainer.style.top = `${centerY}px`;
 
@@ -111,18 +111,32 @@ links.forEach(link => {
                 let img = document.createElement("img");
                 img.src = src;
                 imageContainer.appendChild(img);
-                img.style.marginLeft = `${Math.random() * 20}vw`;
+                img.style.marginLeft = `${Math.random() * 5}vw`;
                 img.style.marginTop = `${Math.random() * 5 }vh`;
                 img.style.marginBottom = `${Math.random() * 5 }vh`;
             });
             if (visibleImg == true) {
                 document.addEventListener("click", (event) => {
                     const aboutContainer = document.getElementById("about");
+                    const imageContainer = document.getElementById("image-container");
+                
+                    if (!visibleImg || !imageContainer) return; // Se non c'è un'immagine visibile o il container non esiste, esci
+                
+                    // Se il click è fuori sia da aboutContainer che da imageContainer
                     if (!aboutContainer.contains(event.target) && !imageContainer.contains(event.target)) {
+                        console.log("Outside clicked");
                         imageContainer.innerHTML = "";
+                        visibleImg = false;
+                    } 
+                    // Se il click è su un'IMG all'interno di imageContainer
+                    else if (event.target.tagName === ("IMG") && imageContainer.contains(event.target)) {
+                        console.log("Image clicked");
+                        imageContainer.innerHTML = "";
+                        visibleImg = false;
+                    } else {
+                        console.log(event.target.tagName.id);
                     }
-                    visibleImg = false;
-                });
+                });                
             }
         });
     }

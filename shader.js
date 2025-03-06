@@ -276,6 +276,7 @@ function initializeScene(texture) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     textContainer.appendChild(renderer.domElement);
+    renderer.domElement.style.zIndex = 0;
     updateShaderScaleFactor();
 }
 
