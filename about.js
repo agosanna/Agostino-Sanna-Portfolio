@@ -1,5 +1,6 @@
 const links = document.querySelectorAll(".hover-link");
 const imageContainer = document.getElementById("image-container");
+let blinker;
 
 if (window.innerWidth > 768) {
     document.querySelectorAll(".vynil").forEach(vynil => {
@@ -8,6 +9,25 @@ if (window.innerWidth > 768) {
         });
     });
 }
+
+function blinkElement(element, duration) {
+    element.style.transition = `opacity ${duration / 2}ms ease-in-out`;
+    blinker = setInterval(() => {
+        element.style.opacity = element.style.opacity == "0.2" ? "1" : "0.2";
+    }, duration);
+    
+}
+
+setTimeout(() => {
+    const element = document.getElementById("Ago");
+    if (element) {
+        blinkElement(element, 800); // Start blinking
+        console.log("Blinking started");
+    } else {
+        console.error("Element #Ago not found");
+    }
+}, 3000);
+
 
 const imageSets = {
 "Ago": [
@@ -65,6 +85,8 @@ let visibleImg;
 links.forEach(link => {
     if (window.innerWidth > 768) {
         link.addEventListener("mouseenter", (event) => {
+            clearInterval(blinker);
+            document.getElementById("Ago").style.opacity = "1";
             imageContainer.innerHTML = ""; // Clear previous images
             
             const linkId = event.target.id;
@@ -95,6 +117,8 @@ links.forEach(link => {
         });
     } else {
         link.addEventListener("click", (event) => {
+            clearInterval(blinker);
+            document.getElementById("Ago").style.opacity = "1";
             imageContainer.innerHTML = ""; // Clear previous images
             visibleImg = true;
             const linkId = event.target.id;
