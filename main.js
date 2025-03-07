@@ -50,7 +50,7 @@ scrollCta.addEventListener("click", function() {
 let debounceTimeout;
 preview.style.transition = "transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-image 0.3s ease-in-out;"
 
-const timeline = ["09/24 - 01/25", "02/24 - 06/24", "02/24 - 07/24", "03/23 - 06/23", "09/23 - 01/24"]
+const timeline = ["09/24 - 01/25", "02/24 - 06/24", "02/24 - 07/24", "03/23 - 06/23", "09/23 - 01/24", "2023"]
 
 menuItems.forEach((item, index) => {
   item.addEventListener("mouseover", () => {
